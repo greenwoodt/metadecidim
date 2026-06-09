@@ -7,7 +7,7 @@ SSHKit.config.command_map[:sidekiq] = 'bundle exec sidekiq'
 SSHKit.config.command_map[:sidekiqctl] = 'bundle exec sidekiqctl'
 
 set :rbenv_type, :user
-set :rbenv_ruby, '3.3.4'
+set :rbenv_ruby, '3.4.7'
 
 set :application, "metadecidim"
 set :repo_url, "https://github.com/decidim/metadecidim.git"
