@@ -2,13 +2,13 @@ name: "[CI] Decidim"
 on: [push]
 
 env:
-  RUBY_VERSION: 3.3.4
-  NODE_VERSION: 18.17.1
+  RUBY_VERSION: 3.4.7
+  NODE_VERSION: 22.14.0
 
 jobs:
   tests:
     name: Tests
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     services:
       postgres:
         image: postgres:13
@@ -31,6 +31,8 @@ jobs:
       - uses: actions/checkout@v2.0.0
         with:
           fetch-depth: 1
+      - name: Install required libraries
+        run: sudo apt-get update && sudo apt-get install -y libicu-dev imagemagick libvips libvips-tools
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
